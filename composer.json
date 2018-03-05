@@ -1,15 +1,23 @@
 {
   "name": "ipraxa/company",
   "description": "Custom  Report module",
+  "keywords": ["php","magento"],
+   "version": "1.0.0",
   "authors": [
     {
       "name": "ipraxagroup"
     }
   ],
   "type": "magento2-module",
+  "repositories": [
+        {
+            "type": "path",
+            "url": "https://github.com/email4qadept/magento.git"
+        }
+    ],
   "version": "1.0.0",
   "require": {
-    "ipraxa/company": "1.*"
-  }
+    "php": "~5.5.0|~5.6.0|~7.0.0"
+   }
   
 }
