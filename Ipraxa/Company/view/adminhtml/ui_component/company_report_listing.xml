@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../../../Magento/Ui/etc/ui_configuration.xsd">
+  <argument name="data" xsi:type="array">
+    <item name="js_config" xsi:type="array">
+      <item name="provider" xsi:type="string">company_report_listing.company_report_listing_data_source</item>
+      <item name="deps" xsi:type="string">company_report_listing.company_report_listing_data_source</item>
+    </item>
+    <item name="spinner" xsi:type="string">sales_order_columns</item>
+  </argument>
+  <dataSource name="company_report_listing_data_source">
+    <argument name="dataProvider" xsi:type="configurableObject">
+      <argument name="name" xsi:type="string">company_report_listing_data_source</argument>
+      <argument name="class" xsi:type="string">Ipraxa\Company\Ui\DataProvider\ReportDataProvider</argument>
+      <argument name="primaryFieldName" xsi:type="string">report_id</argument>
+      <argument name="requestFieldName" xsi:type="string">id</argument>
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="update_url" xsi:type="url" path="mui/index/render" />
+        </item>
+      </argument>
+    </argument>
+    <argument name="data" xsi:type="array">
+      <item name="js_config" xsi:type="array">
+        <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+      </item>
+    </argument>
+  </dataSource>
+  <container name="listing_top">
+    <argument name="data" xsi:type="array">
+      <item name="config" xsi:type="array">
+        <item name="template" xsi:type="string">ui/grid/toolbar</item>
+      </item>
+    </argument>
+    <settings>
+      <sticky>true</sticky>
+    </settings>
+    <bookmark name="bookmarks">
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/bookmarks/bookmarks</item>
+          <item name="displayArea" xsi:type="string">dataGridAcions</item>
+          <item name="storageConfig" xsi:type="array">
+            <item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>
+            <item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>
+            <item name="namespace" xsi:type="string">company_report_listing</item>
+          </item>
+        </item>
+      </argument>
+    </bookmark>
+    <paging name="listing_paging"/>
+    <filters name="listing_filters">
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="displayArea" xsi:type="string">dataGridFilters</item>
+          <item name="dataScope" xsi:type="string">filters</item>
+          <item name="storageConfig" xsi:type="array">
+            <item name="provider" xsi:type="string">company_report_listing.company_report_listing.listing_top.bookmarks</item>
+            <item name="namespace" xsi:type="string">current.filters</item>
+          </item>
+          <item name="childDefaults" xsi:type="array">
+            <item name="provider" xsi:type="string">company_report_listing.company_report_listing.listing_top.listing_filters</item>
+            <item name="imports" xsi:type="array">
+              <item name="visible" xsi:type="string">company_report_listing.company_report_listing.company_report_listing_columns.${ $.index }:visible</item>
+            </item>
+          </item>
+        </item>
+      </argument>
+    </filters>
+  </container>
+  <columns name="sales_order_columns"  >
+    <columns name="sales_order_list" class="Ipraxa\Company\Ui\Component\Listing\Column\Product" />
+    <selectionsColumn name="ids">
+      <settings>
+        <indexField>entity_id</indexField>
+      </settings>
+    </selectionsColumn>
+    <column name="increment_id">
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
+          <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+          <item name="sortable" xsi:type="boolean">true</item>
+          <item name="dataType" xsi:type="string">number</item>
+          <item name="align" xsi:type="string">left</item>
+          <item name="label" xsi:type="string" translate="true">Order ID</item>
+        </item>
+      </argument>
+    </column>
+    <column name="sales_order_list_name" >
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="sortable" xsi:type="boolean">false</item>
+          <item name="editorType" xsi:type="string">text</item>
+          <item name="label" xsi:type="string" translate="true">Product Name</item>
+        </item>
+      </argument>
+    </column>
+    <column name="sales_order_list_sku" >
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="sortable" xsi:type="boolean">false</item>
+          <item name="editorType" xsi:type="string">text</item>
+          <item name="label" xsi:type="string" translate="true">SKU</item>
+        </item>
+      </argument>
+    </column>
+    <column name="sales_order_list_manufacturer" >
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="sortable" xsi:type="boolean">false</item>
+          <item name="editorType" xsi:type="string">text</item>
+          <item name="label" xsi:type="string" translate="true">Manufacturer</item>
+        </item>
+      </argument>
+    </column>
+    <column name="sales_order_list_qty" >
+      <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+          <item name="sortable" xsi:type="boolean">false</item>
+          <item name="editorType" xsi:type="string">text</item>
+          <item name="label" xsi:type="string" translate="true">Qty</item>
+        </item>
+      </argument>
+    </column>
+    <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+      <settings>
+        <filter>dateRange</filter>
+        <dataType>date</dataType>
+        <label translate="true">Purchase Date</label>
+        <sorting>desc</sorting>
+      </settings>
+    </column>
+  </columns>
+</listing>

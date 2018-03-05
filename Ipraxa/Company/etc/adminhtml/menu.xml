@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ipraxa_Company::company" title="Custom Report" resource="Ipraxa_Company::company" module="Ipraxa_Company"  sortOrder="20"/>
+        <add id="Ipraxa_Company::report" title="Manage Report" resource="Ipraxa_Company::report" parent="Ipraxa_Company::company" action="companyadmin/report" module="Ipraxa_Company" sortOrder="20"/>
+    </menu>
+</config>
