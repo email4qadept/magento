@@ -2,6 +2,8 @@
   "name": "ipraxa/company",
   "description": "Custom  Report module",
   "keywords": ["php","magento"],
+  "type": "library",
+  "minimum-stability": "stable",
    "version": "1.0.0",
   "authors": [
     {
