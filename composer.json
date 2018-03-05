@@ -13,11 +13,4 @@
     "ipraxa/company": "*"
   }
   
-    "files": [
-      "registration.php"
-    ],
-    "psr-4": {
-      "Ipraxa\\Company\\": ""
-    }
-  }
 }
