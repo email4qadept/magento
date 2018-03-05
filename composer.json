@@ -1,0 +1,25 @@
+{
+  "name": "ipraxa/company",
+  "description": "Custom  Report module",
+  "authors": [
+    {
+      "name": "ipraxagroup"
+    }
+  ],
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "ipraxa/company": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ipraxa\\Company\\": ""
+    }
+  }
+}
